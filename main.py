@@ -84,8 +84,8 @@ def gauss_seidel_method(matrix, b, tol=1e-9, max_iter=1000):
     return x, residuals
 
 
-def lu_factorization(A):
-    n = len(A)
+def lu_factorization(matrix):
+    n = len(matrix)
     L = [[0] * n for _ in range(n)]
     U = [[0] * n for _ in range(n)]
 
@@ -94,25 +94,25 @@ def lu_factorization(A):
 
     for i in range(n):
         for j in range(i, n):
-            U[i][j] = A[i][j] - sum(L[i][k] * U[k][j] for k in range(i))
+            U[i][j] = matrix[i][j] - sum(L[i][k] * U[k][j] for k in range(i))
         for j in range(i + 1, n):
-            L[j][i] = (A[j][i] - sum(L[j][k] * U[k][i] for k in range(i))) / U[i][i]
+            L[j][i] = (matrix[j][i] - sum(L[j][k] * U[k][i] for k in range(i))) / U[i][i]
 
     return L, U
 
 
-def lu_solve(L, U, b):
+def lu_solve(l_matrix, u_matrix, b):
     n = len(b)
     y = [0] * n
     x = [0] * n
 
     # Solve Ly = b
     for i in range(n):
-        y[i] = b[i] - sum(L[i][j] * y[j] for j in range(i))
+        y[i] = b[i] - sum(l_matrix[i][j] * y[j] for j in range(i))
 
     # Solve Ux = y
     for i in range(n - 1, -1, -1):
-        x[i] = (y[i] - sum(U[i][j] * x[j] for j in range(i + 1, n))) / U[i][i]
+        x[i] = (y[i] - sum(u_matrix[i][j] * x[j] for j in range(i + 1, n))) / u_matrix[i][i]
 
     return x
 

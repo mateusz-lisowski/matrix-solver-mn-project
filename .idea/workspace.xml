@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="933765c3-c3ab-4b68-ac93-3175b6be020d" name="Changes" comment="Fix all spelling issues">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="933765c3-c3ab-4b68-ac93-3175b6be020d" name="Changes" comment="Add fully working task no. 4">
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,7 +40,7 @@
   "keyToString": {
     "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
@@ -173,7 +172,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715465245841</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Add fully working task no. 4">
+      <option name="closed" value="true" />
+      <created>1715466009906</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1715466009906</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -188,6 +195,7 @@
     <MESSAGE value="Remove all the warnings" />
     <MESSAGE value="Delete all unnecessary comments" />
     <MESSAGE value="Fix all spelling issues" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix all spelling issues" />
+    <MESSAGE value="Add fully working task no. 4" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add fully working task no. 4" />
   </component>
 </project>
