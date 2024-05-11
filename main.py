@@ -120,6 +120,33 @@ def main():
     print("Czas trwania metody Jacobiego:", jacobi_time)
     print("Czas trwania metody Gaussa-Seidla:", gauss_seidel_time)
 
+    # Zadanie C - Stworzenie układu równań dla a1 = 3, a2 = a3 = -1
+    a1_new = 3
+    a2_new = -1
+    a3_new = -1
+
+    A_new = create_banded_matrix(N, a1_new, a2_new, a3_new)
+
+    # Rozwiązanie układu równań metodą Jacobiego dla nowych wartości a1, a2, a3
+    x_jacobi_new, residuals_jacobi_new = jacobi_method(A_new, b)
+
+    # Rozwiązanie układu równań metodą Gaussa-Seidla dla nowych wartości a1, a2, a3
+    x_gauss_seidel_new, residuals_gauss_seidel_new = gauss_seidel_method(A_new, b)
+
+    # Wykres normy residuum w kolejnych iteracjach dla nowych wartości a1, a2, a3
+    plt.figure(figsize=(10, 6))
+    plt.plot(range(len(residuals_jacobi_new)), residuals_jacobi_new, label='Metoda Jacobiego', linestyle='-',
+             marker='o')
+    plt.plot(range(len(residuals_gauss_seidel_new)), residuals_gauss_seidel_new, label='Metoda Gaussa-Seidla',
+             linestyle='-', marker='o')
+    plt.yscale('log')
+    plt.xlabel('Iteracje')
+    plt.ylabel('Norma residuum')
+    plt.title('Zmiana normy residuum w kolejnych iteracjach (nowe wartości a1, a2, a3)')
+    plt.legend()
+    plt.grid(True)
+    plt.show()
+
 
 if __name__ == '__main__':
     main()
