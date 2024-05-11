@@ -94,17 +94,17 @@ def main():
     A = create_banded_matrix(N, a1, a2, a3)
     b = create_b_vector(N)
 
-    # Rozwiązanie układu równań metodą Jacobiego
+    # Jacobi's method execution time
     start_time = time.time()
     x_jacobi, residuals_jacobi = jacobi_method(A, b)
     jacobi_time = time.time() - start_time
 
-    # Rozwiązanie układu równań metodą Gaussa-Seidla
+    # Gauss-Seidel method execution time
     start_time = time.time()
     x_gauss_seidel, residuals_gauss_seidel = gauss_seidel_method(A, b)
     gauss_seidel_time = time.time() - start_time
 
-    # Wykres normy residuum w kolejnych iteracjach
+    # Plot the results
     plt.figure(figsize=(10, 6))
     plt.plot(range(len(residuals_jacobi)), residuals_jacobi, label='Metoda Jacobiego', linestyle='-', marker='o')
     plt.plot(range(len(residuals_gauss_seidel)), residuals_gauss_seidel, label='Metoda Gaussa-Seidla', linestyle='-',
@@ -120,20 +120,17 @@ def main():
     print("Czas trwania metody Jacobiego:", jacobi_time)
     print("Czas trwania metody Gaussa-Seidla:", gauss_seidel_time)
 
-    # Zadanie C - Stworzenie układu równań dla a1 = 3, a2 = a3 = -1
+    # Task C
     a1_new = 3
     a2_new = -1
     a3_new = -1
 
     A_new = create_banded_matrix(N, a1_new, a2_new, a3_new)
 
-    # Rozwiązanie układu równań metodą Jacobiego dla nowych wartości a1, a2, a3
     x_jacobi_new, residuals_jacobi_new = jacobi_method(A_new, b)
-
-    # Rozwiązanie układu równań metodą Gaussa-Seidla dla nowych wartości a1, a2, a3
     x_gauss_seidel_new, residuals_gauss_seidel_new = gauss_seidel_method(A_new, b)
 
-    # Wykres normy residuum w kolejnych iteracjach dla nowych wartości a1, a2, a3
+    # Plot the results
     plt.figure(figsize=(10, 6))
     plt.plot(range(len(residuals_jacobi_new)), residuals_jacobi_new, label='Metoda Jacobiego', linestyle='-',
              marker='o')
