@@ -4,27 +4,27 @@ import time
 import matplotlib.pyplot as plt
 
 
-def create_banded_matrix(N, a1, a2, a3):
-    A = [[a1 if i == j else 0 for j in range(N)] for i in range(N)]
-    for i in range(N):
-        if i < N - 1:
+def create_banded_matrix(matrix, a1, a2, a3):
+    A = [[a1 if i == j else 0 for j in range(matrix)] for i in range(matrix)]
+    for i in range(matrix):
+        if i < matrix - 1:
             A[i][i + 1] = a2
             A[i + 1][i] = a2
-        if i < N - 2:
+        if i < matrix - 2:
             A[i][i + 2] = a3
             A[i + 2][i] = a3
     return A
 
 
-def create_b_vector(N):
-    b = [math.sin(n * 4) for n in range(1, N + 1)]
+def create_b_vector(matrix):
+    b = [math.sin(n * 4) for n in range(1, matrix + 1)]
     return b
 
 
-def jacobi_method(A, b, tol=1e-9, max_iter=1000):
-    n = len(A)
+def jacobi_method(matrix, b, tol=1e-9, max_iter=1000):
+    n = len(matrix)
     x = [0] * n
-    x_new = x = [0] * n
+    x_new = [0] * n
     residuals = []
     for iteration in range(max_iter):
 
@@ -34,11 +34,11 @@ def jacobi_method(A, b, tol=1e-9, max_iter=1000):
         x_new = x[:]
 
         for i in range(n):
-            sum_ = sum(A[i][j] * x[j] for j in range(n) if j != i)
-            x_new[i] = (b[i] - sum_) / A[i][i]
+            sum_ = sum(matrix[i][j] * x[j] for j in range(n) if j != i)
+            x_new[i] = (b[i] - sum_) / matrix[i][i]
 
         try:
-            residual = math.sqrt(sum((b[i] - sum(A[i][j] * x_new[j] for j in range(n))) ** 2 for i in range(n)))
+            residual = math.sqrt(sum((b[i] - sum(matrix[i][j] * x_new[j] for j in range(n))) ** 2 for i in range(n)))
             residuals.append(residual)
         except OverflowError:
             break
@@ -51,13 +51,13 @@ def jacobi_method(A, b, tol=1e-9, max_iter=1000):
     return x_new, residuals
 
 
-def gauss_seidel_method(A, b, tol=1e-9, max_iter=1000):
+def gauss_seidel_method(matrix, b, tol=1e-9, max_iter=1000):
     n = len(b)
     x = [0] * n
     residuals = []
 
-    D_plus_L = [[A[i][j] if j <= i else 0 for j in range(n)] for i in range(n)]
-    U = [[A[i][j] if j > i else 0 for j in range(n)] for i in range(n)]
+    D_plus_L = [[matrix[i][j] if j <= i else 0 for j in range(n)] for i in range(n)]
+    U = [[matrix[i][j] if j > i else 0 for j in range(n)] for i in range(n)]
 
     for iteration in range(max_iter):
 
@@ -68,10 +68,10 @@ def gauss_seidel_method(A, b, tol=1e-9, max_iter=1000):
 
         for i in range(n):
             x_new[i] = (b[i] - sum(D_plus_L[i][j] * x_new[j] for j in range(i)) - sum(
-                U[i][j] * x[j] for j in range(i + 1, n))) / A[i][i]
+                U[i][j] * x[j] for j in range(i + 1, n))) / matrix[i][i]
 
         try:
-            residual = math.sqrt(sum((b[i] - sum(A[i][j] * x_new[j] for j in range(n))) ** 2 for i in range(n)))
+            residual = math.sqrt(sum((b[i] - sum(matrix[i][j] * x_new[j] for j in range(n))) ** 2 for i in range(n)))
             residuals.append(residual)
         except OverflowError:
             break
