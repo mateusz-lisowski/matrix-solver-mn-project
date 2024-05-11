@@ -84,6 +84,39 @@ def gauss_seidel_method(matrix, b, tol=1e-9, max_iter=1000):
     return x, residuals
 
 
+def lu_factorization(A):
+    n = len(A)
+    L = [[0] * n for _ in range(n)]
+    U = [[0] * n for _ in range(n)]
+
+    for i in range(n):
+        L[i][i] = 1
+
+    for i in range(n):
+        for j in range(i, n):
+            U[i][j] = A[i][j] - sum(L[i][k] * U[k][j] for k in range(i))
+        for j in range(i + 1, n):
+            L[j][i] = (A[j][i] - sum(L[j][k] * U[k][i] for k in range(i))) / U[i][i]
+
+    return L, U
+
+
+def lu_solve(L, U, b):
+    n = len(b)
+    y = [0] * n
+    x = [0] * n
+
+    # Solve Ly = b
+    for i in range(n):
+        y[i] = b[i] - sum(L[i][j] * y[j] for j in range(i))
+
+    # Solve Ux = y
+    for i in range(n - 1, -1, -1):
+        x[i] = (y[i] - sum(U[i][j] * x[j] for j in range(i + 1, n))) / U[i][i]
+
+    return x
+
+
 def main():
 
     N = 996
@@ -127,8 +160,8 @@ def main():
 
     A_new = create_banded_matrix(N, a1_new, a2_new, a3_new)
 
-    x_jacobi_new, residuals_jacobi_new = jacobi_method(A_new, b)
-    x_gauss_seidel_new, residuals_gauss_seidel_new = gauss_seidel_method(A_new, b)
+    x_jacobi_new, residuals_jacobi_new = jacobi_method(A_new, b, max_iter=100)
+    x_gauss_seidel_new, residuals_gauss_seidel_new = gauss_seidel_method(A_new, b, max_iter=100)
 
     # Plot the results
     plt.figure(figsize=(10, 6))
@@ -143,6 +176,15 @@ def main():
     plt.legend()
     plt.grid(True)
     plt.show()
+
+    # Task D
+    L, U = lu_factorization(A_new)
+    print("LU factorization finished")
+
+    x_lu = lu_solve(L, U, b)
+
+    residual_lu = math.sqrt(sum((b[i] - sum(A_new[i][j] * x_lu[j] for j in range(N))) ** 2 for i in range(N)))
+    print("Residuum norm for LU factorization method:", residual_lu)
 
 
 if __name__ == '__main__':

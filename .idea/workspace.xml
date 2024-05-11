@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="933765c3-c3ab-4b68-ac93-3175b6be020d" name="Changes" comment="Delete all unnecessary comments">
+    <list default="true" id="933765c3-c3ab-4b68-ac93-3175b6be020d" name="Changes" comment="Fix all spelling issues">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -15,6 +16,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "mateusz-lisowski"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/mateusz-lisowski/matrix-solver-mn-project.git",
+    "accountId": "90a2bc28-01ec-4ecb-8082-8eff9897d490"
+  }
+}]]></component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 4
 }]]></component>
@@ -152,7 +165,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715465017101</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Fix all spelling issues">
+      <option name="closed" value="true" />
+      <created>1715465245841</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1715465245841</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -166,6 +187,7 @@
     <MESSAGE value="Implement point no. 3" />
     <MESSAGE value="Remove all the warnings" />
     <MESSAGE value="Delete all unnecessary comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="Delete all unnecessary comments" />
+    <MESSAGE value="Fix all spelling issues" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix all spelling issues" />
   </component>
 </project>
