@@ -106,19 +106,19 @@ def main():
 
     # Plot the results
     plt.figure(figsize=(10, 6))
-    plt.plot(range(len(residuals_jacobi)), residuals_jacobi, label='Metoda Jacobiego', linestyle='-', marker='o')
-    plt.plot(range(len(residuals_gauss_seidel)), residuals_gauss_seidel, label='Metoda Gaussa-Seidla', linestyle='-',
+    plt.plot(range(len(residuals_jacobi)), residuals_jacobi, label="Jacobi's method", linestyle='-', marker='o')
+    plt.plot(range(len(residuals_gauss_seidel)), residuals_gauss_seidel, label='Gauss-Seidel method', linestyle='-',
              marker='o')
     plt.yscale('log')
-    plt.xlabel('Iteracje')
-    plt.ylabel('Norma residuum')
-    plt.title('Zmiana normy residuum w kolejnych iteracjach')
+    plt.xlabel('Iterations')
+    plt.ylabel('Residuum norm')
+    plt.title('Change of residuum norm in next iterations')
     plt.legend()
     plt.grid(True)
     plt.show()
 
-    print("Czas trwania metody Jacobiego:", jacobi_time)
-    print("Czas trwania metody Gaussa-Seidla:", gauss_seidel_time)
+    print(f"Time of Jacobi's method execution: {jacobi_time}")
+    print(f"Time of Gauss-Seidel method execution: {gauss_seidel_time}")
 
     # Task C
     a1_new = 3
@@ -132,14 +132,14 @@ def main():
 
     # Plot the results
     plt.figure(figsize=(10, 6))
-    plt.plot(range(len(residuals_jacobi_new)), residuals_jacobi_new, label='Metoda Jacobiego', linestyle='-',
+    plt.plot(range(len(residuals_jacobi_new)), residuals_jacobi_new, label="Jacobi's method", linestyle='-',
              marker='o')
-    plt.plot(range(len(residuals_gauss_seidel_new)), residuals_gauss_seidel_new, label='Metoda Gaussa-Seidla',
+    plt.plot(range(len(residuals_gauss_seidel_new)), residuals_gauss_seidel_new, label='Gauss-Seidel method',
              linestyle='-', marker='o')
     plt.yscale('log')
-    plt.xlabel('Iteracje')
-    plt.ylabel('Norma residuum')
-    plt.title('Zmiana normy residuum w kolejnych iteracjach (nowe wartości a1, a2, a3)')
+    plt.xlabel('Iterations')
+    plt.ylabel('Residuum norm')
+    plt.title('Change of residuum norm in next iterations (new values)')
     plt.legend()
     plt.grid(True)
     plt.show()

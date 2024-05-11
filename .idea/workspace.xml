@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="933765c3-c3ab-4b68-ac93-3175b6be020d" name="Changes" comment="Implement point no. 3">
+    <list default="true" id="933765c3-c3ab-4b68-ac93-3175b6be020d" name="Changes" comment="Delete all unnecessary comments">
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -136,7 +136,23 @@
       <option name="project" value="LOCAL" />
       <updated>1715464413004</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Remove all the warnings">
+      <option name="closed" value="true" />
+      <created>1715464893290</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1715464893291</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Delete all unnecessary comments">
+      <option name="closed" value="true" />
+      <created>1715465017101</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1715465017101</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -148,6 +164,8 @@
     <MESSAGE value="Change implementation to plain python" />
     <MESSAGE value="Implement point no. 2" />
     <MESSAGE value="Implement point no. 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement point no. 3" />
+    <MESSAGE value="Remove all the warnings" />
+    <MESSAGE value="Delete all unnecessary comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="Delete all unnecessary comments" />
   </component>
 </project>
