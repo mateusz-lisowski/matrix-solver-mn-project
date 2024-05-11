@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="933765c3-c3ab-4b68-ac93-3175b6be020d" name="Changes" comment="Implement fully working task no. 1">
+    <list default="true" id="933765c3-c3ab-4b68-ac93-3175b6be020d" name="Changes" comment="Change implementation to plain python">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -113,7 +113,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715456561463</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Change implementation to plain python">
+      <option name="closed" value="true" />
+      <created>1715459090786</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1715459090786</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -122,6 +130,7 @@
     <MESSAGE value="Create README.md" />
     <MESSAGE value="Write a project description" />
     <MESSAGE value="Implement fully working task no. 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement fully working task no. 1" />
+    <MESSAGE value="Change implementation to plain python" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change implementation to plain python" />
   </component>
 </project>
