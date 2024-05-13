@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="933765c3-c3ab-4b68-ac93-3175b6be020d" name="Changes" comment="Rename arguments to lower case">
+    <list default="true" id="933765c3-c3ab-4b68-ac93-3175b6be020d" name="Changes" comment="Fix warnings and typos">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,7 +188,23 @@
       <option name="project" value="LOCAL" />
       <updated>1715466235489</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Implement working task no. 5">
+      <option name="closed" value="true" />
+      <created>1715628434564</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1715628434564</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Fix warnings and typos">
+      <option name="closed" value="true" />
+      <created>1715628583043</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1715628583043</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -206,6 +221,8 @@
     <MESSAGE value="Fix all spelling issues" />
     <MESSAGE value="Add fully working task no. 4" />
     <MESSAGE value="Rename arguments to lower case" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rename arguments to lower case" />
+    <MESSAGE value="Implement working task no. 5" />
+    <MESSAGE value="Fix warnings and typos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix warnings and typos" />
   </component>
 </project>
