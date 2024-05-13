@@ -98,6 +98,8 @@ def lu_factorization(matrix):
         for j in range(i + 1, n):
             L[j][i] = (matrix[j][i] - sum(L[j][k] * U[k][i] for k in range(i))) / U[i][i]
 
+    print("LU factorization completed")
+
     return L, U
 
 
@@ -109,12 +111,39 @@ def lu_solve(l_matrix, u_matrix, b):
     # Solve Ly = b
     for i in range(n):
         y[i] = b[i] - sum(l_matrix[i][j] * y[j] for j in range(i))
+    print("L part solve completed")
 
     # Solve Ux = y
     for i in range(n - 1, -1, -1):
         x[i] = (y[i] - sum(u_matrix[i][j] * x[j] for j in range(i + 1, n))) / u_matrix[i][i]
+    print("U part solve completed")
 
     return x
+
+
+def solve_jacobi(N, a1, a2, a3):
+    A = create_banded_matrix(N, a1, a2, a3)
+    b = create_b_vector(N)
+    start_time = time.time()
+    jacobi_method(A, b, max_iter=100)
+    return time.time() - start_time
+
+
+def solve_gauss_seidel(N, a1, a2, a3):
+    A = create_banded_matrix(N, a1, a2, a3)
+    b = create_b_vector(N)
+    start_time = time.time()
+    gauss_seidel_method(A, b, max_iter=100)
+    return time.time() - start_time
+
+
+def solve_lu(N, a1, a2, a3):
+    A = create_banded_matrix(N, a1, a2, a3)
+    b = create_b_vector(N)
+    start_time = time.time()
+    L, U = lu_factorization(A)
+    lu_solve(L, U, b)
+    return time.time() - start_time
 
 
 def main():
@@ -179,12 +208,35 @@ def main():
 
     # Task D
     L, U = lu_factorization(A_new)
-    print("LU factorization finished")
-
     x_lu = lu_solve(L, U, b)
 
     residual_lu = math.sqrt(sum((b[i] - sum(A_new[i][j] * x_lu[j] for j in range(N))) ** 2 for i in range(N)))
     print("Residuum norm for LU factorization method:", residual_lu)
+
+    # Task E
+    n_values = [100, 500, 1000, 2000, 3000]
+
+    jacobi_times = []
+    gauss_seidel_times = []
+    lu_times = []
+
+    for n_val in n_values:
+        print(f"Calculating matrix for N value: {n_val}")
+        jacobi_times.append(solve_jacobi(n_val, a1, a2, a3))
+        gauss_seidel_times.append(solve_gauss_seidel(n_val, a1, a2, a3))
+        lu_times.append(solve_lu(n_val, a1, a2, a3))
+
+    # Plot the results
+    plt.figure(figsize=(10, 6))
+    plt.plot(n_values, jacobi_times, label='Metoda Jacobiego', marker='o')
+    plt.plot(n_values, gauss_seidel_times, label='Metoda Gaussa-Seidla', marker='o')
+    plt.plot(n_values, lu_times, label='Metoda faktoryzacji LU', marker='o')
+    plt.xlabel('Liczba niewiadomych (N)')
+    plt.ylabel('Czas trwania [s]')
+    plt.title('Czas wyznaczenia rozwiązania dla różnych metod')
+    plt.legend()
+    plt.grid(True)
+    plt.show()
 
 
 if __name__ == '__main__':
