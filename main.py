@@ -121,25 +121,25 @@ def lu_solve(l_matrix, u_matrix, b):
     return x
 
 
-def solve_jacobi(N, a1, a2, a3):
-    A = create_banded_matrix(N, a1, a2, a3)
-    b = create_b_vector(N)
+def solve_jacobi(matrix, a1, a2, a3):
+    A = create_banded_matrix(matrix, a1, a2, a3)
+    b = create_b_vector(matrix)
     start_time = time.time()
     jacobi_method(A, b, max_iter=100)
     return time.time() - start_time
 
 
-def solve_gauss_seidel(N, a1, a2, a3):
-    A = create_banded_matrix(N, a1, a2, a3)
-    b = create_b_vector(N)
+def solve_gauss_seidel(matrix, a1, a2, a3):
+    A = create_banded_matrix(matrix, a1, a2, a3)
+    b = create_b_vector(matrix)
     start_time = time.time()
     gauss_seidel_method(A, b, max_iter=100)
     return time.time() - start_time
 
 
-def solve_lu(N, a1, a2, a3):
-    A = create_banded_matrix(N, a1, a2, a3)
-    b = create_b_vector(N)
+def solve_lu(matrix, a1, a2, a3):
+    A = create_banded_matrix(matrix, a1, a2, a3)
+    b = create_b_vector(matrix)
     start_time = time.time()
     L, U = lu_factorization(A)
     lu_solve(L, U, b)
@@ -228,12 +228,12 @@ def main():
 
     # Plot the results
     plt.figure(figsize=(10, 6))
-    plt.plot(n_values, jacobi_times, label='Metoda Jacobiego', marker='o')
-    plt.plot(n_values, gauss_seidel_times, label='Metoda Gaussa-Seidla', marker='o')
-    plt.plot(n_values, lu_times, label='Metoda faktoryzacji LU', marker='o')
-    plt.xlabel('Liczba niewiadomych (N)')
-    plt.ylabel('Czas trwania [s]')
-    plt.title('Czas wyznaczenia rozwiązania dla różnych metod')
+    plt.plot(n_values, jacobi_times, label="Jacobi's method", marker='o')
+    plt.plot(n_values, gauss_seidel_times, label='Gauss-Seidel method', marker='o')
+    plt.plot(n_values, lu_times, label='LU factorization method', marker='o')
+    plt.xlabel('Size of input matrix (N)')
+    plt.ylabel('Time to calculate [s]')
+    plt.title('Time of calculating matrix solutions for different methods')
     plt.legend()
     plt.grid(True)
     plt.show()
